@@ -1,82 +1,29 @@
 // This is the main js file for the app
 // It contains the view, model & viewModel
 // for the app
-
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'),{
-        zoom: 8,
+        zoom: 8,        
         center: { lat: 12.9716, lng: 77.5946}
     });
 
     var geocoder = new google.maps.Geocoder();
-    var markers = ['Bengaluru', 'Tumakuru', 'Hosur', 'Mysuru'];
-    getAddressCoordinatesAndSetMarker(geocoder, map, markers);    
-
-    var input = document.getElementById('pac-input');
-    var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-    map.addListener('bounds_changed', function() { 
-        searchBox.setBounds(map.getBounds());
-    });
-
-    var markers = [];
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
-    searchBox.addListener('places_changed', function() {
-        var places = searchBox.getPlaces();
-
-        if (places.length == 0) {
-            return;
-        }
-
-        // Clear out the old markers.
-        markers.forEach(function(marker) {
-            marker.setMap(null);
-        });
-        markers = [];
-
-        // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
-        places.forEach(function(place) {
-            if (!place.geometry) {
-                console.log("Returned place contains no geometry");
-                return;
-            }
-            var icon = {
-                url: place.icon,
-                size: new google.maps.Size(71, 71),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-                map: map,
-                icon: icon,
-                title: place.name,
-                position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-                // Only geocodes have viewport.
-                bounds.union(place.geometry.viewport);
-            } else {
-                bounds.extend(place.geometry.location);
-            }
-        });
-        map.fitBounds(bounds);
-    });
+    var markers = ['Bengaluru', 'Tumakuru', 'Hosur', 'Mysuru', 'Ooty', 'Coonoor', 'Puducherry', 'Srirangapatna'];
+    var marker;
+    getAddressCoordinatesAndSetMarker(geocoder, map, markers);       
 }
 
 function getAddressCoordinatesAndSetMarker(geocoder, map, markers) {
     for (var i = 0; i < markers.length; ++i) {
         geocoder.geocode({'address' : markers[i]}, function(results, status) {
             if (status === 'OK') {
-                var marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                     map: map,
+                    animation: google.maps.Animation.DROP,
                     position: results[0].geometry.location
+                });
+                marker.addListener('click', function(){
+                    toggleBounce(this);
                 });
             } else {
                 alert('Can\'t put marker for the following reason: ' + status);
@@ -85,6 +32,14 @@ function getAddressCoordinatesAndSetMarker(geocoder, map, markers) {
     }    
 
     displayListOfLocations(markers);
+}
+
+function toggleBounce(marker) {
+    if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+    } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
 }
 
 function displayListOfLocations(markers) {
