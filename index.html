@@ -4,17 +4,22 @@
         <title>Map My Neighbourhood</title>
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/mapMyNeighbourhood.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
     </head>
     <body>
-        <input id="pac-input" class="controls" type="text" placeholder="Search">
-        <div id="map"></div></br></br>
-        <div id="listLocations">
-            <ul id="locationsUL"></ul>
+        <div class="container">
+            <div id="listLocations">
+                <ul id="locationsUL"></ul>
+            </div>            
+            <div class="map" id="map"></div>
         </div>
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCylpfgXSo9H4Oau3grnBeaR6SGcTHYg8g&libraries=places&callback=initMap"
         async defer>
-        </script>        
+        </script>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <!--<script src="js/bootstrap.min.js"></script>-->
         <script src="js/app.js"></script>
     </body>
 </html>
