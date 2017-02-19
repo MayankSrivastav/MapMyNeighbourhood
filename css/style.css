@@ -2,7 +2,7 @@
     order: 2;
     height: 650px;
     /*width: 100%;*/
-    flex-grow: 4;
+    flex-grow: 6;
     /*border: 1px solid blue;*/
     /*position: fixed;*/
     /*z-index: 15;*/
@@ -15,9 +15,13 @@
     height: 650px;
     /*width: 100%;*/
     /*border: 1px solid black;   */
-    left: 5%; 
-    z-index: 15;
-    background-color: #e4e4e4;
+    left: 2%; 
+    /*z-index: 15;*/
+    background-color: #e4e4e4; 
+}
+
+#locationsUL {
+    list-style: none;
 }
 
 .container {
@@ -58,4 +62,26 @@ body {
 }
 #target {
     width: 345px;
+}
+
+li {
+    padding: 3px 0 3px 8px;
+    font-family: "Lato", sans-serif;
+}
+
+ul {
+    -webkit-padding-start: 0 !important;
+}
+
+.ui-widget {
+    padding-left: 8px;
+    padding-top: 10px;
+    height: 10px;
+}
+
+li:hover {
+    border: 1px solid gray;
+    background-color: gray;
+    cursor: pointer;
+    color: white;
 }
