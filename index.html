@@ -11,11 +11,9 @@
     <body>
         <div class="container">
             <div id="listLocations">
-                <div class="ui-widget">                   
-                    <input id="tags">
-                </div>
-                <ul id="locationsUL" data-bind="foreach: locations">
-                    <li data-bind="text: name, click: animateMarker"></li><br>
+                <input data-bind="textInput: searchKey" type="search" id="loc-search" placeholder="search..."/>
+                <ul id="locationsUL" data-bind="foreach: listViewFilter">
+                    <li data-bind="text: name, click: animateMarker, visible: isVisible"></li>
                 </ul>
             </div>            
             <div class="map" id="map"></div>
