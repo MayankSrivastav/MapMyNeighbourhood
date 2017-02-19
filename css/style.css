@@ -12,7 +12,7 @@
 #listLocations {    
     order: 1;
     flex-grow: 1;
-    height: 650px;
+    height: 650px;    
     /*width: 100%;*/
     /*border: 1px solid black;   */
     left: 2%; 
@@ -65,18 +65,19 @@ body {
 }
 
 li {
-    padding: 3px 0 3px 8px;
+    padding: 5px 0 5px 8px;
+    margin-bottom: 3px;
     font-family: "Lato", sans-serif;
 }
 
 ul {
-    -webkit-padding-start: 0 !important;
+    -webkit-padding-start: 0 !important;    
 }
 
-.ui-widget {
-    padding-left: 8px;
-    padding-top: 10px;
-    height: 10px;
+#loc-search {    
+    height: 25px;
+    width: 100%;
+    border: none;
 }
 
 li:hover {
