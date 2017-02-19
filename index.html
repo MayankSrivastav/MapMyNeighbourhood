@@ -4,14 +4,18 @@
         <title>Map My Neighbourhood</title>
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">           
         <link rel="stylesheet" href="css/style.css">
         <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
     </head>
     <body>
         <div class="container">
             <div id="listLocations">
+                <div class="ui-widget">                   
+                    <input id="tags">
+                </div>
                 <ul id="locationsUL" data-bind="foreach: locations">
-                    <li data-bind="text: name"></li>
+                    <li data-bind="text: name, click: animateMarker"></li><br>
                 </ul>
             </div>            
             <div class="map" id="map"></div>
@@ -20,7 +24,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCylpfgXSo9H4Oau3grnBeaR6SGcTHYg8g&libraries=places&callback=initMap"
         async defer>
         </script>
-        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/jquery-3.1.1.min.js"></script>        
         <script src="js/knockout-3.4.1.js"></script>
         <!--<script src="js/bootstrap.min.js"></script>-->
         <script src="js/dataService.js"></script>
