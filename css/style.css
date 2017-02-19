@@ -1,4 +1,4 @@
-#map {  
+#map {
     order: 2;
     height: 650px;
     /*width: 100%;*/
@@ -9,15 +9,15 @@
     top: 2%;
 }
 
-#listLocations {    
+#listLocations {
     order: 1;
     flex-grow: 1;
-    height: 650px;    
+    height: 650px;
     /*width: 100%;*/
     /*border: 1px solid black;   */
-    left: 2%; 
+    left: 2%;
     /*z-index: 15;*/
-    background-color: #e4e4e4; 
+    background-color: #e4e4e4;
 }
 
 #locationsUL {
@@ -29,10 +29,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    height: 100%;    
+    height: 100%;
 }
 
-body {   
+body {
     /*height: 100%;*/
     margin: 0;
     padding: 0;
@@ -71,10 +71,11 @@ li {
 }
 
 ul {
-    -webkit-padding-start: 0 !important;    
+    -webkit-padding-start: 0 !important;
+    -moz-padding-start: 0 !important;
 }
 
-#loc-search {    
+#loc-search {
     height: 25px;
     width: 100%;
     border: none;
