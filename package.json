@@ -1,12 +1,10 @@
 {
-  "name": "website-optimization",
+  "name": "mapmyneighbourhood",
   "version": "0.1.0",
   "devDependencies": {
+    "critical": "~0.8.0",
     "grunt": "~0.4.5",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-imagemin": "^1.0.1",
-    "grunt-contrib-uglify": "^2.1.0",
-    "grunt-critical": "^0.2.2",
-    "grunt-responsive-images": "^1.10.1"
+    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt-contrib-uglify": "^2.1.0"
   }
 }

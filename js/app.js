@@ -51,7 +51,7 @@ function DisplayLocation(loc) {
                   'generator=search&gsrnamespace=0&gsrlimit=1&prop=pageimages|extracts&' +
                   'pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' +
                   self.name;
-        
+
         // Call the ajax request on wikipedia API
         // This returns the first entry of the searchKey
         // that is matched in wikipedia database
@@ -119,11 +119,26 @@ function MapViewModel() {
         center: { lat: 12.9716, lng: 77.5946}
     });
 
-    // Instantiate all the locations & Push all the 
-    // initialLocations in the locations array 
+    window.mapBounds = new google.maps.LatLngBounds();
+    window.addEventListener('resize', function(e) {
+        // Make sure the map bounds get updated on page resize
+        map.fitBounds(mapBounds);
+    });
+
+    // Instantiate all the locations & Push all the
+    // initialLocations in the locations array
     for (var loc = 0; loc < initialLocations.length; ++loc) {
         self.locations.push(new DisplayLocation(initialLocations[loc]));
+
+        // All all the marker positions to bounds.extend()
+        window.mapBounds.extend(new google.maps.LatLng(initialLocations[loc].lat,
+                                                       initialLocations[loc].long));
     }
+
+    // fit the map to the new marker
+    map.fitBounds(window.mapBounds);
+    // center the map
+    map.setCenter(window.mapBounds.getCenter());
 
     // observable string for search filter
     // in list view
