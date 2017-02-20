@@ -8,5 +8,6 @@
 ### To setup locally:
 - You can clone the repository with url https://github.com/MayankSrivastav/MapMyNeighbourhood.git
 - Once the cloning is complete, just run the index.html to see app in action.
+
 ### To use directly from Github hosted site:
 - You can directly use the app by clicking [here](https://mayanksrivastav.github.io/MapMyNeighbourhood)
