@@ -16,8 +16,7 @@ function DisplayLocation(loc) {
     self.name = loc.name;
     self.lat = loc.lat;
     self.long = loc.long;
-    self.info = "";
-
+    self.info = ""; 
     self.isVisible = ko.observable(false);
 
     // Create the actual marker with animation
@@ -80,8 +79,8 @@ function DisplayLocation(loc) {
                 // Open the info window
                 self.infoWindow.open(map, self.marker);
             },
-            error: function(err) {
-                alert(err); // TODO: handle gracefully
+            error: function(err) {                             
+                alert("Sorry, we can't get data right now. Please try again later.'");
             }
         });
     });
