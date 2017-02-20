@@ -18,7 +18,7 @@
 .container {
     display: flex;
     flex-direction: row;
-    /*flex-wrap: wrap;*/
+    flex-wrap: nowrap;
     width: 100%;
     height: 100%;
 }
@@ -80,4 +80,10 @@ li:hover {
     background-color: gray;
     cursor: pointer;
     color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .container {        
+        flex-direction: column;
+    }
 }
