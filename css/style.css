@@ -12,6 +12,7 @@
 }
 
 #locationsUL {
+    margin-top: 10px;
     list-style: none;
 }
 
@@ -70,6 +71,7 @@ ul {
 }
 
 #loc-search {
+    margin-top: 10px;
     height: 25px;
     width: 100%;
     border: none;
