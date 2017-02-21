@@ -5,6 +5,7 @@
 // Global variables for map & marker
 var map;
 var marker;
+var infoWindow;
 
 // This constructor function initializes
 // and displays all the locations initially
@@ -68,16 +69,10 @@ function DisplayLocation(loc) {
                            '<a href="' + "https://en.wikipedia.org/?curid=" + v.pageid +
                            '"target="_blank">More on Wikipedia</a>';
                 });
-                self.info = html;
-
-                // Create the maps InfoWindow object &
-                // assign the content with the html
-                self.infoWindow = new google.maps.InfoWindow({
-                    content: self.info
-                });
-
+                self.info = html;                
+                infoWindow.setContent(self.info);
                 // Open the info window
-                self.infoWindow.open(map, self.marker);
+                infoWindow.open(map, self.marker);
             },
             error: function(err) {                             
                 alert("Sorry, we can't get data right now. Please try again later.'");
@@ -118,6 +113,12 @@ function MapViewModel() {
         center: { lat: 12.9716, lng: 77.5946}
     });
 
+    // Create the maps InfoWindow object &
+    // assign the content with the html
+    infoWindow = new google.maps.InfoWindow({
+        content: ''
+    });
+
     window.mapBounds = new google.maps.LatLngBounds();
     window.addEventListener('resize', function(e) {
         // Make sure the map bounds get updated on page resize
@@ -141,7 +142,7 @@ function MapViewModel() {
 
     // observable string for search filter
     // in list view
-    self.searchKey = ko.observable("");
+    self.searchKey = ko.observable('');
 
     // computed array that will display & Hide
     // locations in the list view
