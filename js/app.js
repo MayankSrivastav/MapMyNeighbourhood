@@ -42,7 +42,7 @@ function DisplayLocation(loc) {
             // doesn't keep on bouncing
             setTimeout(function() {
                 self.marker.setAnimation(null);
-            }, 2000);
+            }, 1400);
         }
 
         // Url for wikipedia API request
@@ -164,6 +164,10 @@ function MapViewModel() {
             return self.locations();
         }
     }, this);
+}
+
+function googleMapsLoadError() {
+    alert("Sorry, google maps couldn't load. Please refresh & try again.");
 }
 
 // Initialize the map with ko bindings
