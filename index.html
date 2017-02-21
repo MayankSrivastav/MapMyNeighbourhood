@@ -2,20 +2,20 @@
 <html>
     <head>
         <title>Map My Neighbourhood</title>
-        <meta name="viewport" content="initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">   
     </head>
     <body>
         <div class="container">
-            <div id="listLocations" class="listLocations">                
+            <nav id="listLocations" class="listLocations">                
                 <input data-bind="textInput: searchKey" type="search" id="loc-search" placeholder="search..."/>
                 <ul id="locationsUL" data-bind="foreach: listViewFilter">
                     <li data-bind="text: name, click: animateMarker, visible: isVisible"></li>
                 </ul>
-            </div>           
-            <div class="map" id="map"></div>
+            </nav>           
+            <main class="map" id="map"></main>
         </div>
 
         <script src="js/jquery-3.1.1.min.js"></script>
@@ -23,7 +23,6 @@
         <script src="js/dataService.js"></script>
         <script src="js/app.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCylpfgXSo9H4Oau3grnBeaR6SGcTHYg8g&libraries=places&callback=initMap"
-        async defer>
-        </script>        
+        async defer onerror="googleMapsLoadError()"></script>        
     </body>
 </html>
